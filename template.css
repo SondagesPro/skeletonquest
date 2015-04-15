@@ -59,6 +59,10 @@ li.other-item.checked
   {background:#2a5a7a;color:#fff}
 .js li.other-item:hover label
   {color:#fff}
+/* no answer */
+li.noanswer-item input.radio:checked + label
+  {background:transparent;color:inherit;}
+
 li.radio-item input.radio[disabled] + label,li.checkbox-item input.checkbox[disabled] + label
 {
   background:transparent;
@@ -67,6 +71,8 @@ li.radio-item input.radio[disabled] + label,li.checkbox-item input.checkbox[disa
 
 .js table.question tbody tr td.radio-item:hover {background: #2a5a7a;}
 .js td.radio-item.checked{background-color:#6789a0;}
+.js td.noanswer-item.checked{background-color:transparent;}
+
 .js table.question tbody tr td.checkbox-item:hover {background: #2a5a7a;}
 .js td.checkbox-item.checked{background-color:#6789a0;}
 
