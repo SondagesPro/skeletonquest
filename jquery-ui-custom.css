@@ -1088,7 +1088,6 @@ display:table-cell;vertical-align: middle;
 
 @media screen and (max-width: 767px) {
 .multinum-slider-container{width:12em}
-
 }
 @media handled,screen and (max-width: 479px) {
 .slider-element,.slider_lefttext,.slider_righttext,.slider-label{
