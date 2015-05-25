@@ -110,7 +110,11 @@ li.checkbox-text-item input[type=checkbox] + label:hover:before,
     background-color: #CCC;
     border-color: #CCC;
 }
-
+.ui-slider-range{
+background:#6789a0;
+}
+.slider_callout{
+}
 .question-wrapper {
   border:none;
   border-top:2px solid #2a5a7a;
