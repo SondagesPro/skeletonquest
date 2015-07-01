@@ -423,4 +423,29 @@ function fixLabelClass(){
 		$('li.other-item input[type=text][value!=""]').closest('li.other-item').addClass('checked');
 	});
 }
+/* Fix multi popup if there are different error */
+function showStartPopups(){
+    if(typeof showpopup=="undefined"){showpopup=1;}
+    if(typeof startPopups=="undefined"){startPopups=[];}
+    if(showpopup){
+		var popuptext="";
+        $.each(startPopups,function(key, text){
+            popuptext+="<p>"+$("<div/>").html(text).text()+"</p>";// Parse HTML because of &#039;
+        });
+        if(popuptext)
+        {
+			var $dialog = $('<div></div>')
+				.html(popuptext)
+				.dialog({
+					title: '',
+					dialogClass: 'alert',
+					buttons: { "Ok": function() { $(this).dialog("close"); } },
+					show: { effect: "highlight", duration: 800 },
+					hide: {effect: "fade",duration: 500},
+					modal: true
+				});
+			$dialog.dialog('open');
+		}
+    }
+}
 
