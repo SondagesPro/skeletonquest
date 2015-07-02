@@ -1,9 +1,9 @@
 
 		</div><!--end #main-->
-		<div id="navigation" class="aside" class="starthidden">
+		<div id="navigation" class="aside starthidden">
 			<!-- Place for some navigation -->
 		</div>
-		<div id="extra" class="aside" class="starthidden">
+		<div id="extra" class="aside starthidden">
 			<!-- Place for some extra -->
 		</div>
 	</div><!--end #content -->
