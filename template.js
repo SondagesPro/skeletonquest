@@ -6,6 +6,7 @@
   
   Inspiration by jquery mobile http://jquerymobile.com/ under Dual licensed under the MIT or GPL Version 2 licenses.
 */
+var console=console||{"log":function(){}};
 
 bHaveJquery=false;
 // Some var to enable/disable some function
