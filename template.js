@@ -30,8 +30,8 @@ if (window.jQuery) {
 		fixSelectWidth();
 		if(bMoveLanguageSelect || bCloneNavigator){$("<div class='tools cloned-tools' />").appendTo("#head .wrapper");}
 		if(bCloneNavigator){cloneNavigator();}
-		if(bMoveLanguageSelect){moveLanguageSelect();}
-		if(bMoveLanguageSelect || bCloneNavigator){fixTitleWidth();}
+		if($("#changelangbtn").length && bMoveLanguageSelect){moveLanguageSelect();}
+		if( ($("#changelangbtn").length && bMoveLanguageSelect) || bCloneNavigator){fixTitleWidth();}
 		if(bHeaderFixed){headerFixed();}
 		if(bMoveIndex){updateIndex();}
 		hovercolumn();
@@ -111,16 +111,6 @@ function fixSelectWidth(){
 		$(this).append("<optgroup label=''></optgroup>");
 	});
 	}
-	//~ $('p select,td select').each(function(){
-		//~ var selectwidth=$(this).innerWidth();
-		//~ $(this).find('option').outerWidth(selectwidth);
-	//~ });
-	//~ $( window ).resize(function() {
-		//~ $('p select,td select').each(function(){
-			//~ var selectwidth=$(this).innerWidth();
-			//~ $(this).find('option').outerWidth(selectwidth);
-		//~ });
-	//~ });
 }
 if (window.jQuery) {
 // Replace common alert with jquery-ui dialog
