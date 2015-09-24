@@ -1284,7 +1284,7 @@ table.question label.read{display:inline}
 }
 /* Loading body */
 body.loading.js .starthidden{opacity:0}
-body .starthidden{-webkit-transition:all 400ms linear; transition:all 400ms linear; }
+body.js .starthidden{-webkit-transition:opacity 400ms linear; transition:opacity 400ms linear; }
 
 .loader {display: none;}
 body.loading.js .loader {display: block;}
