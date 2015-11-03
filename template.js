@@ -90,7 +90,7 @@ function noScrollOnSelect()
 }
 /* Add a little icon with Scroll to top : /!\ no text put inaccessible */
 function addScrollTop(){
-	$("<a href='#' class='scrollToTop'>&nbsp;</a>").appendTo("body");
+	$("<a href='#' class='scrollToTop' aria-hidden='true'>&nbsp;</a>").appendTo("body");
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 100) {
 			$('.scrollToTop').fadeIn();
