@@ -3,7 +3,7 @@
   Copyright (C) 2010-2014 Denis Chenu for http://sondages.pro
   Distributed under GPL 3 licence
   Distributed under MIT licence
-  
+
   Inspiration by jquery mobile http://jquerymobile.com/ under Dual licensed under the MIT or GPL Version 2 licenses.
 */
 var console=console||{"log":function(){}};
@@ -13,17 +13,17 @@ bHaveJquery=false;
 useDefaultProgress=false; // Use the default progress-wrapper from LimeSurvey core
 replaceJavascriptAlert=true; // Replace common alert with jquery-ui dialog
 bMoveLanguageSelect=true // Move the language selector to the top
-bCloneNavigator=true // Clone the navigator in the header
+bCloneNavigator=false // Clone the navigator in the header
 bMoveIndex=true // Move index in a fixed box at rigth of the survey
 bHeaderFixed=true; // Fix the header
 
 if (window.jQuery) {
 	bHaveJquery=true;
-	window.onbeforeunload = function() { 
+	window.onbeforeunload = function() {
 		$("body").removeClass("loaded").addClass("loading");
 	 };
-	disableEnterSubmit(); 
-	fixLabelClass(); 
+	disableEnterSubmit();
+	fixLabelClass();
 	$(document).ready(function(){
 		removeBack();
 		addScrollTop();
@@ -66,7 +66,7 @@ function navbuttonsJqueryUi(){
 }
 /* Adding some element to multi-numeric slider */
 function updateSlider()
-{ 
+{
 	$(".multinum-slider").wrap("<div class='multinum-slider-container slider-element' />" );
 	$(".slider-reset").wrap("<div class='slider-reset-container slider-element' />" );
 	$(".slider-list [id^='container-']").slider( "option", "range", "min" );
@@ -273,7 +273,7 @@ function accordionIndex(){
 	});
 	containerheight+= $("#index .container h2").outerHeight()*1;
 	containerheight+=$("#index p.navigator").outerHeight()*1;
-	containerheight+=40;// A 40px more 
+	containerheight+=40;// A 40px more
 //	$("#index .container").height(containerheight);
 	$("#index .container").css('min-height', containerheight+'px');
 	$("#content").css('min-height', containerheight+'px');
@@ -401,17 +401,30 @@ function fixLabelClass(){
 			$(this).closest('li.other-item').removeClass('checked');
 		}
 	});
-	$(document).on('click','li.radio-item [type=radio]',function(){
+	/* Radio list text */
+	$(document).ready(function(){
+		$('li.radio-item.other-item [type=radio]').not("[checked]").each(function(){
+			$(this).closest('li').find('[type=text]').prop('disabled',true);
+		});
+		$('li.radio-item.other-item [type=radio][checked]').each(function(){
+			$(this).closest('li').addClass('checked');
+		});
+	});
+	$(document).on('click','li.radio-item:not(.other-item) [type=radio]',function(){
 		$(this).closest('ul').find('li.other-item').removeClass('checked');
+		$(this).closest('ul').find('li.other-item').find("input[type=text]").prop('disabled',true);
+	});
+	$(document).on('click','li.other-item [type=radio]',function(event){
+		$(this).closest(".other-item").find("input[type=text]").prop('disabled',false);
+		$(this).closest(".other-item").addClass('checked');
+		event.stopPropagation();
 	});
 	$(document).on('click','li.other-item',function(){
-		$(this).find("input[type=text]").focus();
+		$(this).find("input[type=radio]").click();
+		$(this).closest(".other-item").find("input[type=text]").focus();
 	});
 	$(document).on('click','td.checkbox-item,td.radio-item',function(){
 		$(this).find("input[type=checkbox],input[type=radio]").focus();
-	});
-	$(document).ready(function(){
-		$('li.other-item input[type=text][value!=""]').closest('li.other-item').addClass('checked');
 	});
 }
 /* Fix multi popup if there are different error */
