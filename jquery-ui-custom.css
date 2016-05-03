@@ -1438,7 +1438,7 @@ li.radio-item input[type=radio] + label:hover:before,
 }
 @media screen and (max-width: 767px) {
 ul.radio-list li.other-item label, ul.checkbox-list li.other-item label {display:block;margin-left: 2.5em;}
-ul.checkbox-list li.other-item input.text {margin-left: 2.5em;}
+ul.checkbox-list li.other-item input.text,ul.radio-list li.other-item input.text  {margin-left: 2.5em;}
 }
 .js td.checkbox-item,.js td.radio-item{cursor:pointer}
 
@@ -1567,4 +1567,3 @@ display:none;
     .affix {position: relative;}
     a[href^="#"]:after,a[href^="javascript:"]:after {content: "";}
 }
-
