@@ -1061,6 +1061,7 @@ ul.radio-list li:last-child label,ul.checkbox-list  li:last-child label
 ul.radio-list li:last-child.other-item,ul.checkbox-list li:last-child.other-item
   {-moz-border-radius-bottomleft: 6px; -webkit-border-bottom-left-radius: 6px; -khtml-border-bottom-left-radius: 6px; border-bottom-left-radius: 6px;-moz-border-radius-bottomright: 6px; -webkit-border-bottom-right-radius: 6px; -khtml-border-bottom-right-radius: 6px; border-bottom-right-radius: 6px;}
 
+
 /* Slider */
 .slider-element,.slider_lefttext,.slider_righttext,.slider-label{
 display:table-cell;vertical-align: middle;
@@ -1081,6 +1082,7 @@ display:table-cell;vertical-align: middle;
 
 @media screen and (max-width: 767px) {
 .multinum-slider-container{width:12em}
+
 }
 @media handled,screen and (max-width: 479px) {
 .slider-element,.slider_lefttext,.slider_righttext,.slider-label{
@@ -1436,7 +1438,7 @@ li.radio-item input[type=radio] + label:hover:before,
 }
 @media screen and (max-width: 767px) {
 ul.radio-list li.other-item label, ul.checkbox-list li.other-item label {display:block;margin-left: 2.5em;}
-ul.checkbox-list li.other-item input.text {margin-left: 2.5em;}
+ul.checkbox-list li.other-item input.text,ul.radio-list li.other-item input.text  {margin-left: 2.5em;}
 }
 .js td.checkbox-item,.js td.radio-item{cursor:pointer}
 
@@ -1565,4 +1567,3 @@ display:none;
     .affix {position: relative;}
     a[href^="#"]:after,a[href^="javascript:"]:after {content: "";}
 }
-
