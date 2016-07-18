@@ -203,13 +203,35 @@ function updateIndex(){
 		$("#index").appendTo("#content").wrap("<div class='aside aside-index' />");
 		$("body").addClass("with-aside");
 		$("#content").addClass("with-aside");
-		var mainOffset= $("#main").offset().top-$(window).scrollTop();
+		var mainOffset=0;
+		var newOffset=0;
+		var maxHeight=0;
 		minOffset=0+$(".head.affix").outerHeight();
-		$("#index").css("top",Math.max(mainOffset,minOffset)+"px");
+		mainOffset= $("#main").offset().top-$(window).scrollTop();
+		newOffset=Math.max(mainOffset,minOffset);
+		$("#index").css("top",newOffset+"px");
+		maxHeight=$(window).innerHeight()-newOffset-$("#footer").outerHeight(true)*2-$("#index h2").outerHeight(true);
+		console.log(maxHeight);
+		$("#index ol").css("max-height",maxHeight+"px");
 		$(window).on('scroll',function(){
-			mainOffset= $("#main").offset().top-$(window).scrollTop();
-			newOffset=Math.max(mainOffset,minOffset);
-			$("#index").css("top",Math.max(mainOffset,minOffset)+"px");
+			if($(window).width() > 1023)
+			{
+				mainOffset= $("#main").offset().top-$(window).scrollTop();
+				newOffset=Math.max(mainOffset,minOffset);
+				$("#index").css("top",newOffset+"px");
+				maxHeight=$(window).innerHeight()-newOffset-$("#footer").outerHeight(true)*2-$("#index h2").outerHeight(true);
+				$("#index ol").css("max-height",maxHeight+"px");
+			}
+		});
+		$(window).on('resize',function(){
+			if($(window).width() > 1023)
+			{
+				maxHeight=$(window).innerHeight()-newOffset-$("#footer").outerHeight(true)*2-$("#index h2").outerHeight(true);
+				$("#index ol").css("max-height",maxHeight+"px");
+			}else{
+				$("#index ol").css("max-height","");
+				$("#index").css("top","");
+			}
 		});
 		$(document).on('click','#index :submit',function(){
 			$(this).clone().removeAttr('id').appendTo("#limesurvey").click();
