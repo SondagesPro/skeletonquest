@@ -818,10 +818,16 @@ button.changelang{font-size:0.8em;}
 .js #progress-wrapper.skeletonprogress{margin-bottom:0.3em;}
 }
 /* index */
-#index  ol{margin:0;padding:0;list-style-position:inside}
+#index ol{margin:0;padding:0;list-style-position:inside;}
+@media only screen and (min-width: 1024px) {
+#index ol{overflow-y:auto;}
+}
+@media only screen and (max-width: 1023px) {
+#index ol{max-height:none !important}
+}
 #index .container{margin-top: 2em;border: 1px solid;border-color:#e1e1e1;background:#fff;
 -webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
-.aside #index .container{margin-top: 1em;}
+.aside #index .container{margin-top: 0;}
 #index .container h2{padding:0.2em 1em 0.5em;margin:0;background: #f1f1f1;font-weight: bold;
 -webkit-border-top-left-radius: 5px;-webkit-border-top-right-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;border-top-left-radius: 5px;border-top-right-radius: 5px;}
 /*@media only screen and (max-width: 767px) {*/
@@ -1082,7 +1088,6 @@ display:table-cell;vertical-align: middle;
 
 @media screen and (max-width: 767px) {
 .multinum-slider-container{width:12em}
-
 }
 @media handled,screen and (max-width: 479px) {
 .slider-element,.slider_lefttext,.slider_righttext,.slider-label{
